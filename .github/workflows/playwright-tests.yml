@@ -79,4 +79,3 @@ jobs:
 
       - name: Print report URL
         run: echo "📊 Playwright Report -> ${{ steps.deployment.outputs.page_url }}"
-          retention-days: 14
