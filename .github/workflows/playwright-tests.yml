@@ -7,6 +7,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Grant permissions to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     name: Run Playwright Tests
@@ -48,4 +54,29 @@ jobs:
         with:
           name: test-results-chromium
           path: test-results/
+          retention-days: 14
+
+      - name: Upload report to GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        if: ${{ !cancelled() }}
+        with:
+          path: playwright-report/
+
+  deploy-report:
+    name: Deploy Report to GitHub Pages
+    needs: test
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Print report URL
+        run: echo "📊 Playwright Report -> ${{ steps.deployment.outputs.page_url }}"
           retention-days: 14
