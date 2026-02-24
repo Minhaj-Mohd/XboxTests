@@ -1,0 +1,33 @@
+{
+  "name": "xbox-tests",
+  "version": "1.0.0",
+  "description": "Playwright E2E tests for Xbox Support Portal",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:ci": "playwright test --reporter=html,junit --retries=2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "xbox",
+    "e2e"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/identity": "^4.13.0",
+    "@azure/keyvault-secrets": "^4.10.0",
+    "axios": "^1.13.4",
+    "findup-sync": "^5.0.0",
+    "nconf": "^0.13.0"
+  }
+}

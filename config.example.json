@@ -1,0 +1,8 @@
+{
+  "keyVaultUrl": "https://<YOUR_KEYVAULT_NAME>.vault.azure.net",
+  "azureDevOpsPatSecretName": "<YOUR_PAT_SECRET_NAME>",
+  "azureDevOpsOrgUrl": "https://dev.azure.com/<YOUR_ORG>/",
+  "azureDevOpsProject": "<YOUR_PROJECT>",
+  "azureDevOpsPlanId": "<YOUR_PLAN_ID>",
+  "azureDevOpsSuiteId": "<YOUR_SUITE_ID>"
+}

@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "generatedAt": "2026-02-06T12:00:00Z",
+  "source": "planner-agent-playwright",
+  "appUnderTest": "https://support.xbox.com/en-US/",
+  "testCases": [
+    {
+      "id": "TC-SEARCH-001",
+      "category": "Search",
+      "title": "End-to-End Happy Path: Search for Help Topic and View Results",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 1,
+      "tags": ["AI_GENERATED", "Search", "E2E", "Happy_Path"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads with search bar displaying 'Hi, how can we help?' placeholder" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'controller' in the search box", "expected": "Text appears in search box; auto-complete suggestions appear (up to 6 suggestions)" },
+        { "action": "Click on a suggested search result (e.g., 'controller warranty')", "expected": "User is redirected to search results page with URL containing the search phrase" },
+        { "action": "Verify search results page", "expected": "Page displays 'Search results' heading, result count, and relevant article cards with titles and descriptions" },
+        { "action": "Click on a search result article", "expected": "User is navigated to the article page with relevant content" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-002",
+      "category": "Search",
+      "title": "Search Submission Using Enter Key",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Positive"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'game pass' in the search box", "expected": "Text appears in search box" },
+        { "action": "Press Enter key", "expected": "User is redirected to search results page with results for 'game pass'" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-003",
+      "category": "Search",
+      "title": "Search Submission Using Search Button",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Positive"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'subscription' in the search box", "expected": "Text appears in search box and Search button is visible" },
+        { "action": "Click the Search button", "expected": "User is redirected to search results page with results for 'subscription'" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-004",
+      "category": "Search",
+      "title": "Auto-Complete Suggestions Display",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Auto_Complete"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'controller' in the search box", "expected": "Auto-complete dropdown appears with up to 6 relevant suggestions" },
+        { "action": "Verify suggestions are clickable", "expected": "Each suggestion is displayed as a button with search icon and descriptive text" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-005",
+      "category": "Search",
+      "title": "Clear Button Functionality",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Clear"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'test query' in the search box", "expected": "Text appears in search box and Clear button (X) appears" },
+        { "action": "Click the Clear button", "expected": "Search box is cleared and Clear button disappears" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-006",
+      "category": "Search",
+      "title": "Search Results Page - Load More Functionality",
+      "assumptions": "User is on Xbox Support home page; search returns more than 10 results.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Pagination"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Type 'controller' in the search box and press Enter", "expected": "Search results page loads with multiple results" },
+        { "action": "Scroll down to the bottom of the results", "expected": "'Load more' button is visible" },
+        { "action": "Click the 'Load more' button", "expected": "Additional search results are loaded and displayed below existing results" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-007",
+      "category": "Search",
+      "title": "Empty Search Submission",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Negative", "Validation"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Press Enter key without entering any text", "expected": "No search is performed; user remains on home page or receives validation message" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-008",
+      "category": "Search",
+      "title": "Search with Special Characters",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Edge_Case"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type special characters like '@#$%^&*' in the search box", "expected": "Characters are accepted in the search box" },
+        { "action": "Press Enter", "expected": "Search is performed; results page shows appropriate message (no results or filtered results)" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-009",
+      "category": "Search",
+      "title": "Search with No Matching Results",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Search", "Negative"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type a random string that would not match any content (e.g., 'xyzabc123nonexistent')", "expected": "Text appears in search box" },
+        { "action": "Press Enter", "expected": "Search results page loads with zero results or 'No results found' message" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-010",
+      "category": "Search",
+      "title": "Search Persistence on Results Page",
+      "assumptions": "User is on search results page.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Results_Page"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Type 'billing' in the search box and press Enter", "expected": "Search results page loads" },
+        { "action": "Verify search box on results page", "expected": "Search box on results page displays the original search term 'billing'" },
+        { "action": "Modify the search term to 'payment' and press Enter", "expected": "New search is performed and results for 'payment' are displayed" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-011",
+      "category": "Search",
+      "title": "Virtual Agent Integration on Results Page",
+      "assumptions": "User is on search results page.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Virtual_Agent"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Type 'game pass' in the search box and press Enter", "expected": "Search results page loads" },
+        { "action": "Verify Virtual Agent summary section", "expected": "Virtual Agent summary section is visible with AI-generated response related to the search query" },
+        { "action": "Click 'Open chat' button", "expected": "Virtual Agent chat interface opens for further assistance" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-012",
+      "category": "Search",
+      "title": "Search with Long Text Input",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Edge_Case", "Boundary"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type a very long search query (200+ characters)", "expected": "Search box accepts the input (may truncate if character limit exists)" },
+        { "action": "Press Enter", "expected": "Search is performed; results page loads without errors" }
+      ]
+    },
+    {
+      "id": "TC-SEARCH-013",
+      "category": "Search",
+      "title": "Auto-Complete Suggestion Navigation with Keyboard",
+      "assumptions": "User is on Xbox Support home page; search bar is visible.",
+      "priority": 3,
+      "tags": ["AI_GENERATED", "Search", "Accessibility", "Keyboard_Navigation"],
+      "steps": [
+        { "action": "Navigate to https://support.xbox.com/en-US/", "expected": "Xbox Support home page loads" },
+        { "action": "Click on the search box", "expected": "Search box becomes active/focused" },
+        { "action": "Type 'account' in the search box", "expected": "Auto-complete suggestions appear" },
+        { "action": "Press Down Arrow key to navigate suggestions", "expected": "Focus moves through the auto-complete suggestions" },
+        { "action": "Press Enter on a highlighted suggestion", "expected": "Selected suggestion is submitted and search results page loads" }
+      ]
+    }
+  ]
+}

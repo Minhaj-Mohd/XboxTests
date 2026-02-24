@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-05T12:00:00Z",
+  "source": "planner-agent-playwright",
+  "appUnderTest": "https://www.saucedemo.com/",
+  "testCases": [
+    {
+      "id": "TC-LGN-001",
+      "category": "Login",
+      "title": "Successful Login (standard_user)",
+      "assumptions": "User logged out; login page loaded.",
+      "priority": 2,
+      "tags": ["AI_GENERATED", "Login", "Positive"],
+      "steps": [
+        { "action": "Navigate to https://www.saucedemo.com/", "expected": "Login page loads" },
+        { "action": "Enter Username: standard_user", "expected": "Username accepted" },
+        { "action": "Enter Pass", "expected": "Pass accepted" },
+        { "action": "Click Login button", "expected": "Redirect to /inventory.html and Products header visible" }
+      ]
+    }
+  ]
+}

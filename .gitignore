@@ -1,0 +1,11 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+playwright/.cache/
+.env
+.env.local
+config.json
+*.log
+.DS_Store
+Thumbs.db
